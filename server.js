@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
     })
     socket.on("media-received", (RoomId) => {
         console.log("sending to socket =>", socket.id);
-        socket.to(RoomId).emit("peer-to-peer")
+        io.to(RoomId).emit("peer-to-peer")
     })
 
     socket.on("send-message", (message, RoomId, peerId, Clientname) => {

@@ -33,6 +33,7 @@ const leaveMeeting = () => {
 const getMediastream = async() => {
     const mediastream = await navigator.mediaDevices.getUserMedia(constraint);
     addVideoStream(myVideo, mediastream);
+    socket.emit("media-received", RoomId);
     myVideoStream = mediastream;
     peer.on("call", (call) => {
         console.log("incoming call");
@@ -52,7 +53,6 @@ const getMediastream = async() => {
         userId = id;
         console.log("My socket id ", socket.id);
         //setTimeout(connectToNewUser, 3000, userId, mediastream)
-        socket.emit("media-received", RoomId);
     });
     socket.on("peer-to-peer", () => {
         console.log("Connecting....");
