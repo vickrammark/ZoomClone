@@ -20,9 +20,9 @@ io.on("connection", (socket) => {
     socket.on("join-room", (roomId, id) => {
         socket.join(roomId);
         socket.to(roomId).emit("user-connected", id)
-        socket.on("media-received", (RoomId) => {
-            socket.to(RoomId).emit("peer-to-peer")
-        })
+    })
+    socket.on("media-received", (RoomId) => {
+        socket.to(RoomId).emit("peer-to-peer")
     })
 
     socket.on("send-message", (message, RoomId, peerId, Clientname) => {
