@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { Socket } = require("dgram");
 const express = require("express");
 const socketio = require("socket.io");
@@ -38,6 +39,6 @@ app.get("/:room/:name", (req, res) => {
     console.log(req);
     res.render("room", { roomId: req.params.room, name: req.params.name });
 });
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
     console.log("Sever is up and runing");
 });
