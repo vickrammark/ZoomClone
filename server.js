@@ -18,8 +18,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "./templates"));
 io.on("connection", (socket) => {
     socket.on("join-room", (roomId, id) => {
-        socket.join(roomId);
         socket.to(roomId).emit("user-connected", id)
+        socket.join(roomId);
     })
     socket.on("media-received", (RoomId) => {
         console.log("sending to socket =>", socket.id);
