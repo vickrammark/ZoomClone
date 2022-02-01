@@ -22,6 +22,7 @@ io.on("connection", (socket) => {
         socket.to(roomId).emit("user-connected", id)
     })
     socket.on("media-received", (RoomId) => {
+        console.log("sending to socket =>", socket.id);
         socket.to(RoomId).emit("peer-to-peer")
     })
 

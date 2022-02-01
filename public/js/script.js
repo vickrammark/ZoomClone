@@ -50,8 +50,9 @@ const getMediastream = async() => {
     socket.on("user-connected", (id) => {
         console.log("userid =>", id);
         userId = id;
-        setTimeout(connectToNewUser, 3000, userId, mediastream)
-            // socket.emit("media-received", RoomId);
+        console.log("My socket id ", socket.id);
+        //setTimeout(connectToNewUser, 3000, userId, mediastream)
+        socket.emit("media-received", RoomId);
     });
     socket.on("peer-to-peer", () => {
         console.log("Connecting....");
