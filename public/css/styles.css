@@ -1,0 +1,174 @@
+#video-grid {
+    display: flex;
+    justify-content: center;
+}
+
+video {
+    height: 300px;
+    width: 400px;
+    object-fit: cover;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    width: 100%;
+}
+
+.main__left {
+    flex: 0.7;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.main__videos {
+    flex-grow: 1;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__right {
+    display: flex;
+    flex: 0.3;
+    flex-direction: column;
+    background-color: #242324;
+    border-left: 1px solid #3d3d42;
+}
+
+.main__chat_window {
+    flex-grow: 1;
+    overflow-x: auto;
+}
+
+.main__message_container {
+    padding: 22px 12px;
+    display: flex;
+}
+
+.main__message_container input {
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #f5f5f5;
+}
+
+.main__header {
+    color: #f5f5f5;
+    text-align: center;
+}
+
+.main__controls {
+    display: flex;
+    background-color: #1c1e20;
+    color: #d2d2d2;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.main__controls__button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+
+.main__controls__button i {
+    font-size: 24px;
+}
+
+.main__controls__block {
+    display: flex;
+    flex-direction: row;
+}
+
+.main__controls__button:hover {
+    background-color: #343434;
+    border-radius: 5px;
+}
+
+.leave_meeting {
+    color: #eb543b;
+}
+
+.unmute {
+    color: #cc3b33;
+}
+
+.stop {
+    color: #cc3b33;
+}
+
+.message {
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    list-style-type: none;
+    padding: 16px;
+    background-color: floralwhite;
+    border-radius: 10px;
+    margin: 5px;
+}
+
+.message_chat {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    text-align: center;
+    font-size: 10px;
+    color: dodgerblue;
+}
+
+.message-sent div {
+    margin: 0px 0px 0px auto;
+    text-align: center;
+}
+
+.message-received div {
+    text-align: center;
+    margin: 0px auto 0px 0px;
+}
+
+.messages {
+    padding: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 10px;
+}
+
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
