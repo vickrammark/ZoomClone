@@ -20,10 +20,11 @@ io.on("connection", (socket) => {
     socket.on("join-room", (roomId, id) => {
         socket.join(roomId);
         socket.to(roomId).emit("user-connected", id)
+        socket.on("media-received", (RoomId) => {
+            socket.to(RoomId).emit("peer-to-peer")
+        })
     })
-    socket.on("media-received", (RoomId) => {
-        socket.to(RoomId).emit("peer-to-peer")
-    })
+
     socket.on("send-message", (message, RoomId, peerId, Clientname) => {
         io.to(RoomId).emit("recive-message", message, peerId, Clientname);
 
@@ -39,6 +40,6 @@ app.get("/:room/:name", (req, res) => {
     console.log(req);
     res.render("room", { roomId: req.params.room, name: req.params.name });
 });
-server.listen(process.env.PORT || 3000, () => {
+server.listen(process.env.PORT || 443, () => {
     console.log("Sever is up and runing");
 });
